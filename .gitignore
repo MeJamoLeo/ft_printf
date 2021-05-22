@@ -1,3 +1,6 @@
 diff.txt
 a.out
 test.sh
+*.txt
+*.a
+Dockerfile

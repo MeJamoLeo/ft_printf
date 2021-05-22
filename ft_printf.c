@@ -6,18 +6,26 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:45 by treo              #+#    #+#             */
-/*   Updated: 2021/05/21 13:46:37 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/22 10:26:30 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
+	int	i;
 
-	if (format)
-		return (0);
-	return (0);
+	i = 0;
+	while (*(format + i) != '\0')
+	{
+		if (*(format + i) != '%')
+		{
+			ft_putchar_fd(*(format + i++) , 1);
+			continue;
+		}
+	}
+	return (i);
 }
 
 #ifdef TEST
@@ -29,10 +37,9 @@ int ft_printf(const char *format, ...)
 	#define F(...) printf(__VA_ARGS__)
 #endif
 
-
 int	main(void)
 {
-	F("hoge\n");
+	F("abcd[%10qs]\n", "hoge");
 	return (0);
 }
 
