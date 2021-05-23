@@ -1,6 +1,9 @@
 diff.txt
 a.out
-test.sh
+*.sh
 *.txt
 *.a
 Dockerfile
+printf
+ft_printf
+.vscode
