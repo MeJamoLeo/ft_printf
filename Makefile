@@ -34,7 +34,7 @@ dbuild:
 	docker build . -t 42tokyo
 
 drun:
-	docker run --rm -it 42tokyo
+	docker run -v `pwd`:/user42 -w /user42 --rm -it 42tokyo
 
 # for test
 printf: libft
