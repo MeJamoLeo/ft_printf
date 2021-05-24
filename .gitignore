@@ -7,3 +7,9 @@ Dockerfile
 printf
 ft_printf
 .vscode
+main.c
+
+libft/*.o
+libft/main.c
+libft/*.a
+libft/a.*

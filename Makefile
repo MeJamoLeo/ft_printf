@@ -2,53 +2,54 @@ NAME	= libftprintf.a
 SRCS	= ft_printf.c
 OBJS	= $(SRCS:%.c=%.o)
 CC = gcc
-#CFLAGS = -Wall -Werror -Wextra -c -I .
-CFLAGS = -Wall -Werror -Wextra -I ./libft -c
+CFLAGS = -Wall -Werror -Wextra -I. -c
 RM		= rm -f
+LIBFT = libft/libft.a
 
 
 .c.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) $(CFLAGS) $(NAME) $< -o $@
 
 all:	$(NAME)
 
 
-$(NAME): libft $(OBJS)
+$(NAME): lib $(OBJS)
+	cp -f $(LIBFT) $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
 lib:
-	$(MAKE) -C ./libft
-	cp libft/libft.a $(NAME)
+	@make -C ./libft
 
 $(OBJS):
-	$(CC) $(CFCLAGS) $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS)
 
 clean:
 	$(RM) $(OBJS)
+	@make clean -C ./libft
 
 fclean:		clean
 	$(RM) $(NAME)
+	@make fclean -C ./libft
 
 re:			fclean all
 
-dbuild:
-	docker build . -t 42tokyo
+#dbuild:
+#	docker build . -t 42tokyo
+#
+#drun:
+#	docker run -v `pwd`:/user42 -w /user42 --rm -it 42tokyo
+#
+## for test
+#printf: lib
+#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -o printf -D TEST
+#
+#ft_printf: lib
+#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -o ft_printf -D TEST -D FT_PRINTF
+#
+#test: printf ft_printf
+#	sh test.sh
+#
+#a: libft
+#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -D TEST -D FT_PRINTF
 
-drun:
-	docker run -v `pwd`:/user42 -w /user42 --rm -it 42tokyo
-
-# for test
-printf: lib
-	$(CC) $(CFCLAGS) $(NAME) ft_printf.c -o printf -D TEST
-
-ft_printf: lib
-	$(CC) $(CFCLAGS) $(NAME) ft_printf.c -o ft_printf -D TEST -D FT_PRINTF
-
-test: printf ft_printf
-	sh test.sh
-
-a: libft
-	$(CC) $(CFCLAGS) $(NAME) ft_printf.c -D TEST -D FT_PRINTF
-
-# end
 .PHONY:		all clean fclean re bonus

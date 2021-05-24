@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:45 by treo              #+#    #+#             */
-/*   Updated: 2021/05/24 11:47:32 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/24 17:35:51 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,28 +105,4 @@ int	ft_printf(const char *format, ...)
 			// ---------------------------------------------------- 出力する
 	}
 	return (i);
-}
-
-//#ifdef TEST
-//#include <stdio.h>
-//#ifdef FT_PRINTF
-//	#define F(...) ft_printf(__VA_ARGS__)
-//#else
-//	#define F(...) printf(__VA_ARGS__)
-//#endif
-//
-//int	main(void)
-//{
-//	//F("abcd[%-020.*s]\n", 2, "hoge");
-//	F("abcd[%*s]\n", 100, "hoge");
-//	return (0);
-//}
-//
-//#endif
-
-int	main(void)
-{
-	printf("====\n");
-	ft_printf("abcd[%100s]\n", "hoge");
-	return (0);
 }
