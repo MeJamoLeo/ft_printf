@@ -4,8 +4,8 @@
 #include <stdarg.h>
 
 # define CNV "dicssuxXp"
-# define FIELD_MYNUS 0
-# define FIELD_ZERO 1
+# define FLAG_MYNUS 0
+# define FLAG_ZERO 1
 # define TRUE 1
 
 typedef struct	s_conv_str
@@ -18,5 +18,7 @@ typedef struct	s_conv_str
 	int	ast_precision;
 	int	conv_char;
 }				t_conv_str;
+
+int	pf_read_conv(t_conv_str *conv, char *str, int itr);
 
 #endif
