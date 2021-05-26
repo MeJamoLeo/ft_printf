@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:02:25 by treo              #+#    #+#             */
-/*   Updated: 2021/05/25 13:44:29 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/26 11:34:54 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	init_conv(t_conv_str *conv, int itr)
 	conv->conv_char = 0;
 }
 
-int		pf_read_conv(t_conv_str *conv, char *str, int itr)
+int		pf_read_conv(t_conv_str *conv, const char *str, int itr)
 {
 		// ---------------------------------------------------- 変換指定を読む
 		init_conv(conv, itr);
@@ -43,7 +43,7 @@ int		pf_read_conv(t_conv_str *conv, char *str, int itr)
 		{
 			ft_putchar_fd(*(str + conv->start), 1);
 			itr = conv->start + 1;
-			return (itr);
+			return (-1);
 		}
 
 		// ------------------------- field

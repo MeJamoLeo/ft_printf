@@ -19,6 +19,7 @@ typedef struct	s_conv_str
 	int	conv_char;
 }				t_conv_str;
 
-int	pf_read_conv(t_conv_str *conv, char *str, int itr);
+int	pf_read_conv(t_conv_str *conv, const char *str, int itr);
+void	pf_put_conv(va_list args, t_conv_str *conv, int itr);
 
 #endif
