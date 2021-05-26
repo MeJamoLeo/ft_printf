@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:45 by treo              #+#    #+#             */
-/*   Updated: 2021/05/26 11:47:42 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/26 11:54:00 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ int	ft_printf(const char *format, ...)
 		}
 		i = pf_read_conv(&conv, format, i);
 		if (i < 0)
-			return (-1);
+			break;
 		// ---------------------------------------------------- 出力する
 		pf_put_conv(ap, &conv, i);
 	}
 	printf("\n\nformat:	%s\nstart:	%d\nMYNUS:	%d\nZERO:	%d\nfield:	%d\nast_field:	%d\nprecision:	%d\nast_precision:	%d\nconv_char:	%c\n", format, conv.start, conv.flag[FLAG_MYNUS], conv.flag[FLAG_ZERO], conv.field, conv.ast_field, conv.precision, conv.ast_precision, conv.conv_char);
 
 	va_end(ap);
+	if (i < 0)
+		return (-1);
 	return (i);
 }
