@@ -23,5 +23,6 @@ int	pf_read_conv(t_conv_str *conv, const char *str, int itr);
 void	pf_put_conv(va_list args, t_conv_str *conv);
 char	*ft_uitobase(unsigned int num, char *base);
 char	*ft_uitoa(unsigned int ui);
+char	*ft_ultobase(unsigned long num, char *base);
 
 #endif

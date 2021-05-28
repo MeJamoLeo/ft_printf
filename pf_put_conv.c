@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:13:22 by treo              #+#    #+#             */
-/*   Updated: 2021/05/28 11:11:04 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/28 12:45:18 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ void	pf_put_conv(va_list args, t_conv_str *conv)
 		str = ft_uitobase(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (conv->conv_char == 'X')
 		str = ft_uitobase(va_arg(args, unsigned int), "0123456789ABCDEF");
-
-	// 実際の出力
+	else if (conv->conv_char == 'p')
+	{
+		ft_putstr_fd("0x", 1);
+		str = ft_ultobase((unsigned long)va_arg(args, void *), "0123456789abcdef");
+	}
 	if (conv->conv_char == 'c')
 		ft_putchar_fd(tmp, 1);
 	else
