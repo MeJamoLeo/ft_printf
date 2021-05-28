@@ -38,18 +38,16 @@ re:			fclean all
 #
 #drun:
 #	docker run -v `pwd`:/user42 -w /user42 --rm -it 42tokyo
-#
-## for test
-#printf: lib
-#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -o printf -D TEST
-#
-#ft_printf: lib
-#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -o ft_printf -D TEST -D FT_PRINTF
-#
-#test: printf ft_printf
-#	sh test.sh
-#
-#a: libft
-#	$(CC) $(CFLAGS) $(NAME) ft_printf.c -D TEST -D FT_PRINTF
+
+# for test
+printf: lib
+	gcc -g -Wall -Werror -Wextra libft/libft.a *.c -o printf -D TEST
+ft_printf: lib
+	gcc -g -Wall -Werror -Wextra libft/libft.a *.c -o ft_printf -D TEST -D FT_PRINTF
+test: printf ft_printf
+	sh test.sh
+lldb: lib
+	gcc -g -Wall -Werror -Wextra libft/libft.a *.c
+	lldb a.out
 
 .PHONY:		all clean fclean re bonus
