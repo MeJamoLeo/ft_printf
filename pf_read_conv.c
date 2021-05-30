@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:02:25 by treo              #+#    #+#             */
-/*   Updated: 2021/05/26 11:34:54 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/30 13:20:12 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		pf_read_conv(t_conv_str *conv, const char *str, int itr)
 			else
 				while (ft_isdigit(*(str + itr)))
 				{
-					conv->field *= 10;
-					conv->field += *(str + itr) - '0';
+					conv->precision *= 10;
+					conv->precision += *(str + itr) - '0';
 					itr++;
 				}
 		}
