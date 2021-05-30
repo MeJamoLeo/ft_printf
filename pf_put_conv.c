@@ -6,7 +6,7 @@
 /*   By: treo <treo@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 15:13:22 by treo              #+#    #+#             */
-/*   Updated: 2021/05/28 17:17:16 by treo             ###   ########.fr       */
+/*   Updated: 2021/05/29 15:49:04 by treo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	pf_put_conv(va_list args, t_conv_str *conv)
 	char	c;
 
 	if (conv->conv_char == 'i' || conv->conv_char == 'd')
-		str = ft_itoa(va_arg(args, int));
+		pf_put_di(args, conv);
 	else if (conv->conv_char == 's')
 		str = ft_strdup(va_arg(args, char *));
 	else if (conv->conv_char == 'c')

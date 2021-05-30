@@ -25,4 +25,5 @@ char	*ft_uitobase(unsigned int num, char *base);
 char	*ft_uitoa(unsigned int ui);
 char	*ft_ultobase(unsigned long num, char *base);
 
+void	pf_put_di(va_list args, t_conv_str *conv);
 #endif
